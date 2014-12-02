@@ -1,0 +1,67 @@
+public class MonthNumber {
+	
+	public static final String JANUARY   = "January  ";
+	public static final String FEBRUARY  = "February ";
+	public static final String MARCH     = "March    ";
+	public static final String APRIL     = "April    ";
+	public static final String MAY       = "May      ";
+	public static final String JUNE      = "June     ";
+	public static final String JULY      = "July     ";
+	public static final String AUGUST    = "August   ";
+	public static final String SEPTEMBER = "September";
+	public static final String OCTOBER   = "October  ";
+	public static final String NOVEMBER  = "November ";
+	public static final String DECEMBER  = "December ";
+	
+	public static final String MONTHS = JANUARY   + 
+										FEBRUARY  +
+										MARCH     +
+										APRIL     +
+										MAY       +
+										JUNE      +
+										JULY      +
+										AUGUST    +
+										SEPTEMBER +
+										OCTOBER   +
+										NOVEMBER  +
+										DECEMBER;
+	
+	/**
+	 * Each month has 9 characters (with spaces), so each substring steps up
+	 * by 9.  trim() just removes the whitespace after the month has been 
+	 * substringed.
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		System.out.println(MONTHS);
+		System.out.println("1:  " + MONTHS.substring(0,9).trim());
+		System.out.println("2:  " + MONTHS.substring(9, 18).trim());
+		System.out.println("3:  " + MONTHS.substring(18, 27).trim());
+		System.out.println("4:  " + MONTHS.substring(27, 36).trim());
+		System.out.println("5:  " + MONTHS.substring(36, 45).trim());
+		System.out.println("6:  " + MONTHS.substring(45, 54).trim());
+		System.out.println("7:  " + MONTHS.substring(54, 63).trim());
+		System.out.println("8:  " + MONTHS.substring(63, 72).trim());
+		System.out.println("9:  " + MONTHS.substring(72, 81).trim());
+		System.out.println("10: " + MONTHS.substring(81, 90).trim());
+		System.out.println("11: " + MONTHS.substring(90, 99).trim());
+		System.out.println("12: " + MONTHS.substring(99, 108).trim());
+		
+		MonthNumber month = new MonthNumber();
+		
+		System.out.println(month.getMonth(2));
+	}
+	
+	public MonthNumber() {
+		
+	}
+	
+	/**
+	 * Retrieves the month name based on the number. Range is 1-12.
+	 * @param monthNum
+	 * @return
+	 */
+	public String getMonth(int monthNum) {
+		return MONTHS.substring((monthNum-1) * 9, (monthNum * 9)).trim();
+	}
+}

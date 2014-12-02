@@ -1,0 +1,18 @@
+import java.util.Scanner;
+
+public class CardGame 
+{
+	private static Scanner scanner;
+	
+	public static void main(String[] args) 
+	{
+		scanner = new Scanner(System.in);
+		Card card = new Card();
+		System.out.println("You picked " + card.getDescription("H10adjfad") + ".");
+	}
+	
+	public String getInput()
+	{
+		return scanner.next();
+	}
+}

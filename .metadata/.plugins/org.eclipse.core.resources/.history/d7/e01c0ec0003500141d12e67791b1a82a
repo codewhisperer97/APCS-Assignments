@@ -1,0 +1,11 @@
+public class ReplaceTester {
+
+	public static void main(String[] args) {
+		String word = "Mississippi";
+		System.out.println(word);
+		System.out.println("M!$$!$$!pp!");
+		word.replace("i", "!");
+		word.replace("s", "$");
+		System.out.println(word);
+	}
+}

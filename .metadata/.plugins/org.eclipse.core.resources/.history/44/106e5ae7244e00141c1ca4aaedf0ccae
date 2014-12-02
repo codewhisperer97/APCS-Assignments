@@ -1,0 +1,35 @@
+public class MonthNumber {
+	
+	public static final String JANUARY   = "January  ";
+	public static final String FEBRUARY  = "February ";
+	public static final String MARCH     = "March    ";
+	public static final String APRIL     = "April    ";
+	public static final String MAY       = "May      ";
+	public static final String JUNE      = "June     ";
+	public static final String JULY      = "July     ";
+	public static final String AUGUST    = "August   ";
+	public static final String SEPTEMBER = "September";
+	public static final String OCTOBER   = "October  ";
+	public static final String NOVEMBER  = "November ";
+	public static final String DECEMBER  = "December ";
+	
+	public static final String MONTHS = JANUARY   + 
+										FEBRUARY  +
+										MARCH     +
+										APRIL     +
+										MAY       +
+										JUNE      +
+										JULY      +
+										AUGUST    +
+										SEPTEMBER +
+										OCTOBER   +
+										NOVEMBER  +
+										DECEMBER;
+	
+	public static void main(String[] args) {
+		System.out.println(MONTHS);
+		System.out.println("1: " + MONTHS.substring(0,9));
+		System.out.println("2: " + MONTHS.substring(9, 18));
+		System.out.println("3: " + MONTHS.substring(18, 27));
+	}
+}

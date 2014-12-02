@@ -1,0 +1,15 @@
+public class DieRoll 
+{
+	public static final int DICE = 1;
+	public static final int ROLLS = 20;
+	
+	public static void main(String[] args)
+	{
+		
+	}
+	
+	private static int getRoll()
+	{
+		
+	}
+}

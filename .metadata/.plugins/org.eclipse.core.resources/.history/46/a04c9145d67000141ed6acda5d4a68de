@@ -1,0 +1,90 @@
+import java.util.Scanner;
+
+public class ChangingBooths 
+{
+	public static final int ERROR = -1;
+	
+	private static Scanner scanner;
+	
+	private static int booths = 0;
+	private static boolean[] list;
+	
+	public static void main(String[] args) {
+		scanner = new Scanner(System.in);
+		
+		booths = getNumBooths();
+		System.out.println("There are " + booths + " booths.");
+		
+		/*
+		 * Create a boolean array that is as large as our number of booths. Then,
+		 * fill each slot of the array with false to indicate empty booths.
+		 */
+		list = new boolean[booths];
+		for(int i = 0; i < list.length; i++)
+		{
+			list[i] = false;
+		}
+	}
+	
+	/**
+	 * Method to return a valid, in-range integer of how many booths are present
+	 * in the scenario.  This method calles _getNumBooths() which allows it to
+	 * perform step-by-step sanitation:
+	 * First, __getNumBooths() makes sure that the number retrieved from the 
+	 * scanner is a properly parsed Integer.
+	 * Second, _getNumBooths() makes sure that the number is within the range that
+	 * we want for this purpose, namely, greater than 0.
+	 * @return The sanitized input.
+	 */
+	public static int getNumBooths()
+	{
+		int response = ERROR;
+		
+		while((response = _getNumBooths()) < 1)
+		{
+			System.out.println("Can't be less than 1! Try again: ");
+		}
+		return response;
+	}
+	
+	private static int _getNumBooths()
+	{
+		int response = ERROR;
+		
+		while((response = __getNumBooths()) == ERROR)
+		{
+			System.out.print("Not an integer! Try again: ");
+		}
+		return response;
+	}
+	
+	private static int __getNumBooths()
+	{
+		int response = ERROR;
+		
+		try
+		{
+			response = Integer.parseInt(scanner.next());
+		}
+		catch(Exception e)
+		{
+			/*
+			 * If this portion of the code is run, then there was an error
+			 * parsing the String input into an Integer, so it should return
+			 * an error.  I'm resetting 'response' to ERROR here in case there's
+			 * a weird change in the try block.
+			 */
+			response = ERROR;
+		}
+		return response;
+	}
+	
+	private static String getBoothRep()
+	{
+		StringBuffer response = new StringBuffer();
+		for(int i = 0; i < list.length; i++)
+		{
+			response.append(list[i] ? "X" : "-");
+		}
+	}
+}

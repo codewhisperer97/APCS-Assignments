@@ -1,0 +1,19 @@
+import java.util.Random;
+
+public class DieRoll 
+{
+	public static final int DICE = 1;
+	public static final int ROLLS = 20;
+
+	private static Random rand;
+	
+	public static void main(String[] args)
+	{
+		rand = new Random();
+	}
+	
+	private static int getRoll(int max)
+	{
+		return rand.nextInt(max) + 1;
+	}
+}

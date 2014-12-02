@@ -1,0 +1,10 @@
+public class LeapYear 
+{
+	public static void main(String[] args) 
+	{
+		Year someYear = new Year(2016);
+		System.out.println("The year is " + someYear.getYear() +
+						   " and it " + ((someYear.isLeapYear()) ? "is" : "is not") +
+						   " a leap year!");
+	}
+}

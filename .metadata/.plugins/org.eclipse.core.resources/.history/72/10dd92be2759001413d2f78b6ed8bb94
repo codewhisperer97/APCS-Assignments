@@ -1,0 +1,58 @@
+import java.util.Scanner;
+
+public class MonthTranslator 
+{
+	public static final int JANUARY = 31;
+	public static final int FEBRUARY = 28;
+	public static final int MARCH = 31;
+	public static final int APRIL = 30;
+	public static final int MAY = 31;
+	public static final int JUNE = 30;
+	public static final int JULY = 31;
+	public static final int AUGUST = 31;
+	public static final int SEPTEMBER = 30;
+	public static final int OCTOBER = 31;
+	public static final int NOVEMBER = 30;
+	public static final int DECEMBER = 31;
+	
+	private static int monthNum = -1;
+	private static Scanner scanner;
+	
+	public static void main(String[] args) 
+	{
+		System.out.println("Enter Number: ");
+		
+	}
+	
+	public static int getNumInput()
+	{
+		int input = -1;
+		while((input = getNumInput()) < 1 || input > 12)
+		{
+			System.out.println("Invalid input! Enter Number: ");
+		}
+		return input;
+	}
+	
+	public static int _getNumInput()
+	{
+		return Integer.parseInt(scanner.next());
+	}
+	
+	/**
+	 * I decided to use a separate method than the constructor to pass in the
+	 * input because I'm using the same class that has the 'main' method as the
+	 * object class.  In order to use the member scanner object, the constructor
+	 * must have been run in advance, but if it needs a parameter of the number,
+	 * then the scanner would not exist yet.  So I used 'getNumInput'.
+	 */
+	public MonthTranslator() 
+	{
+		
+	}
+	
+	public int numDays()
+	{
+		
+	}
+}

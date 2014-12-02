@@ -1,0 +1,118 @@
+import java.util.Scanner;
+
+public class YesNoChecker {
+	
+	/**
+	 * This constant array holds the values for all YES values that the program
+	 * will recognize.  Any string added to this list will become a keyword that
+	 * the program will accept for a YES response.
+	 */
+	public static final String[] YES = {
+		"yes",
+		"yeah",
+		"yep",
+		"y",
+		"ok",
+		"sure",
+		"why-not",
+		"okie-dokie"
+	};
+	
+	/**
+	 * This constant array holds the values for all NO values that the program
+	 * will recognize.  Any string added to this list will become a keyword that
+	 * the program will accept for a NO response.
+	 */
+	public static final String[] NO = {
+		"no",
+		"nope",
+		"n"
+	};
+	
+	private Scanner scanner;
+	
+	public static void main(String[] args) {
+		YesNoChecker checker = new YesNoChecker();
+		
+		System.out.print("Do you want to continue? ");
+		/*
+		 * This while loop does not have anything in its execution braces, all
+		 * of the repeating code is part of the conditional statement.  The
+		 * method called by the conditional statement has a boolean return 
+		 * value to tell whether the loop should continue or try again.  The 
+		 * true code that is intended to be repeated is in the method of the 
+		 * conditional statement, thus the execution block is empty.
+		 */
+		while(!checker.checkResponse(checker.getResponse()));
+	}
+	
+	public YesNoChecker() {
+		scanner = new Scanner(System.in);
+	}
+	
+	/**
+	 * Queries the scanner for text input from the user.
+	 * @return The text input from the user.
+	 */
+	public String getResponse() {		
+		return scanner.next();
+	}
+	
+	/**
+	 * This method uses constant String arrays to cycle through all of the
+	 * preset YES and NO entry options.  If the response string matches any of
+	 * the entry options in either the YES or NO lists, then the method will
+	 * print an appropriate feedback and return true.  If the response does NOT
+	 * match, then a statement will be given to retry and the method will return
+	 * false (this allows the execution above this method to detect if a match
+	 * was found for the response, and if not it will prompt again).
+	 * @param response The user input that is being compared for a YES or NO
+	 * match.
+	 * @return True if a match if found for either YES or NO, false otherwise.
+	 */
+	public boolean checkResponse(String response) {
+		/*
+		 * The string to be compared is converted to lower-case because the
+		 * sample of comparison strings are all lower-case, but we want upper-
+		 * case responses to work as well.
+		 */
+		String compare = response.toLowerCase();
+		//System.out.print("COMPARE: " + compare);
+		
+		/*
+		 * This loop uses the constant array of YES responses and cycles through
+		 * all possible answers that represent a YES answer.  If at any point
+		 * the comparison string matches, then the OK message is printed and
+		 * the method exits.
+		 */
+		for(int i = 0; i < YES.length; i++) {
+			//System.out.print(YES[i]);
+			if(compare.equals(YES[i])) {
+				System.out.println("OK!");
+				return true;
+			}
+		}
+		
+		/*
+		 * This loop uses the constant array of NO responses and cycles through
+		 * all possible answers that represent a NO answer.  If at any point
+		 * the comparison string matches, then the Terminating message is 
+		 * printed and the method exits.
+		 */
+		for(int i = 0; i < NO.length; i++) {
+			if(compare.equals(NO[i])) {
+				System.out.println("Terminating!");
+				return true;
+			}
+		}
+		
+		/*
+		 * If the response does not match a preset YES or NO answer, then a 
+		 * separate message is printed asking the user to enter another response,
+		 * and the method returns false to alert the execution logic that it 
+		 * needs to repeat.
+		 */
+		System.out.print("Bad Input! Please try again: ");
+		return false;
+	}
+}

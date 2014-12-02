@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class MonthTranslator 
+{
+	public static final int JANUARY = 31;
+	public static final int FEBRUARY = 28;
+	public static final int MARCH = 31;
+	public static final int APRIL = 30;
+	public static final int MAY = 31;
+	public static final int JUNE = 30;
+	public static final int JULY = 31;
+	public static final int AUGUST = 31;
+	public static final int SEPTEMBER = 30;
+	public static final int OCTOBER = 31;
+	public static final int NOVEMBER = 30;
+	public static final int DECEMBER = 31;
+	
+	private int monthNum;
+	private static Scanner scanner;
+	
+	public static void main(String[] args) 
+	{
+		
+	}
+	
+	public static int getNumInput()
+	{
+		return Integer.parseInt(scanner.next());
+	}
+	
+	public MonthTranslator(int monthIn) 
+	{
+		monthNum = monthIn;
+	}
+	
+	public int numDays()
+	{
+		
+	}
+}

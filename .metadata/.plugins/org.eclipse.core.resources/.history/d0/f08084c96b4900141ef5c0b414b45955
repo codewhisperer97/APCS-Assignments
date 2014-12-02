@@ -1,0 +1,33 @@
+public class TallyCounter 
+{
+	private static TallyCounter counter;
+	private int count;
+	
+	public TallyCounter() {
+		count = 0;
+	}
+	
+	public static void main(String[] args) 
+	{
+		counter = new TallyCounter();
+		
+		counter.click();
+		counter.click();
+		counter.click();
+		counter.click();
+	}
+	
+	public void click() {
+		count++;
+	}
+	
+	public void undo() {
+		if(count < 0) {
+			count--;
+		}
+	}
+	
+	public int getCount() {
+		return count;
+	}
+}
