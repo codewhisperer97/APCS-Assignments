@@ -7,6 +7,7 @@ public class CardGame
 	public static void main(String[] args) 
 	{
 		scanner = new Scanner(System.in);
+		System.out.print("Enter a card abbreviation: ");
 		
 		Card card = new Card();
 		String desc = null;
