@@ -1,5 +1,9 @@
 public class AlternatingSums 
 {
+	/**
+	 * Integer array that is holding a sequence of numbers that will alternatively
+	 * be added and subtracted from one another.
+	 */
 	public static final int[] numbers = {
 		1,
 		2,
