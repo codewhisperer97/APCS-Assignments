@@ -3,30 +3,40 @@ import java.util.Random;
 
 public class PermutationGenerator 
 {
-	private static ArrayList<Integer> data;
-	private static Random rand;
+	private int mLength;
+	private ArrayList<Integer> baseArray;
+	private int[] permArray;
+	private Random rand;
 	
-	public static void main(String[] args) 
+	public PermutationGenerator(int length)
 	{
-		data = new ArrayList<Integer>();
+		mLength = length;
+		baseArray = new ArrayList<Integer>();
+		permArray = new int[mLength];
 		rand = new Random();
+	}
+	
+	private void initBaseArray()
+	{
+		baseArray.clear();
 		
-		for(int i = 1; i <= 10; i++)
+		for(int i = 0; i < mLength; i++)
 		{
-			data.add(new Integer(i));
+			baseArray.add(new Integer(i + 1));
 		}
-		
-		for(int i = 0; i < data.size(); i++)
+	}
+	
+	public int[] nextPermutation()
+	{
+		initBaseArray();
+		permArray = new int[mLength];
+		int index = 0;
+		for(int i = 0; i < permArray.length; i++)
 		{
-			System.out.println(data.get(i));
+			index = rand.nextInt(baseArray.size());
+			permArray[i] = baseArray.get(index);
+			baseArray.remove(index);
 		}
-		
-		int index = -1;
-		int size = -1;
-		for(int i = 0; i < data.size(); i++)
-		{
-			System.out.println("Data=" + data.get(index = rand.nextInt(size = data.size())));
-			data.remove(index);
-		}
+		return permArray;
 	}
 }
